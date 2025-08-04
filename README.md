@@ -15,7 +15,7 @@ Here, you can find my learning process, code style, and practical problem-solvin
   *Calculates the sum of numbers entered by the user until zero is input. Robust to non-numeric input.*
 - [3_mvp_dating_pairs.py](./3_mvp_dating_pairs.py)  
   *MVP greedy-matching for a dating service: sorts names and pairs by index.*
-  - [4_avg_temp_per_country.py](./4_avg_temp_per_country.py)  
+- [4_avg_temp_per_country.py](./4_avg_temp_per_country.py)  
   *Calculates average temperature per country in Celsius from a list of daily Fahrenheit values.*
 
 ---
