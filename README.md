@@ -2,7 +2,8 @@
 
 **Author:** Katsiaryna Kavaleuskaya  
 **Goal:** This repository collects small Python scripts and mini-projects created as part of my studies and self-development as a future data scientist.  
-Here, you can find my learning process, code style, and practical problem-solving skills.
+Here, you can find my learning process, code style, and practical problem-solving skills. Embracing AI as a tool for faster, smarter, and more productive solutions.
+
 
 ---
 
