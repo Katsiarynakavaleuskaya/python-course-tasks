@@ -15,6 +15,8 @@ Here, you can find my learning process, code style, and practical problem-solvin
   *Calculates the sum of numbers entered by the user until zero is input. Robust to non-numeric input.*
 - [3_mvp_dating_pairs.py](./3_mvp_dating_pairs.py)  
   *MVP greedy-matching for a dating service: sorts names and pairs by index.*
+  - [4_avg_temp_per_country.py](./4_avg_temp_per_country.py)  
+  *Calculates average temperature per country in Celsius from a list of daily Fahrenheit values.*
 
 ---
 
@@ -34,6 +36,7 @@ Here, you can find my learning process, code style, and practical problem-solvin
 | [1_middle_letter.py](./1_middle_letter.py)   | Finds the middle letter(s) of a word      | - String slicing<br>- Input validation<br>- Handling user errors|
 | [2_sum_until_zero.py](./2_sum_until_zero.py) | Sums numbers until zero is entered        | - Input loop<br>- Try/except<br>- User guidance and error proofing|
 | [3_mvp_dating_pairs.py](./3_mvp_dating_pairs.py) | MVP: pairs users by sorted index for dating app | - Greedy algorithm<br>- Sorting<br>- MVP logic<br>- Business constraints|
+| [4_avg_temp_per_country.py](./4_avg_temp_per_country.py) | Calculates average temperature in Celsius per country | - List processing<br>- Data transformation<br>- Using functions|
 
 ---
 
