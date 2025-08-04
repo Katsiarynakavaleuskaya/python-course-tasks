@@ -1,4 +1,3 @@
-
 # Python Mini-Tasks Portfolio
 
 **Author:** Katsiaryna Kavaleuskaya  
@@ -13,6 +12,8 @@ Here, you can find my learning process, code style, and practical problem-solvin
   *Finds the middle letter(s) of an input word. Handles empty and invalid input gracefully.*
 - [2_sum_until_zero.py](./2_sum_until_zero.py)  
   *Calculates the sum of numbers entered by the user until zero is input. Robust to non-numeric input.*
+- [mvp_dating_pairs.py](./mvp_dating_pairs.py)  
+  *MVP greedy-matching for a dating service: sorts names and pairs by index.*
 
 ---
 
@@ -27,14 +28,16 @@ Here, you can find my learning process, code style, and practical problem-solvin
 
 ## ⭐ Selected Tasks
 
-| Script                      | Description                         | Key learning points                       |
-|-----------------------------|-------------------------------------|-------------------------------------------|
-| [1_middle_letter.py](./1_middle_letter.py)   | Finds the middle letter(s) of a word | - String slicing<br>- Input validation<br>- Handling user errors |
-| [2_sum_until_zero.py](./2_sum_until_zero.py) | Sums numbers until zero is entered   | - Input loop<br>- Try/except<br>- User guidance and error proofing |
+| Script                                   | Description                              | Key learning points                                             |
+|-------------------------------------------|------------------------------------------|----------------------------------------------------------------|
+| [1_middle_letter.py](./1_middle_letter.py)   | Finds the middle letter(s) of a word      | - String slicing<br>- Input validation<br>- Handling user errors|
+| [2_sum_until_zero.py](./2_sum_until_zero.py) | Sums numbers until zero is entered        | - Input loop<br>- Try/except<br>- User guidance and error proofing|
+| [mvp_dating_pairs.py](./mvp_dating_pairs.py) | MVP: pairs users by sorted index for dating app | - Greedy algorithm<br>- Sorting<br>- MVP logic<br>- Business constraints|
 
 ---
 
 ## 🔗 Contacts
 
-e-mail:  katsiaryna1983@icloud.com
+e-mail:  katsiaryna1983@icloud.com  
 telegram: @Katsiaryna_Kavaleuskaya
+
