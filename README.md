@@ -17,7 +17,7 @@ Here, you can find my learning process, code style, and practical problem-solvin
   *MVP greedy-matching for a dating service: sorts names and pairs by index.*
 - [4_avg_temp_per_country.py](./4_avg_temp_per_country.py)  
   *Calculates average temperature per country in Celsius from a list of daily Fahrenheit values.*
-  - [5_car_plate_validation.py](./5_car_plate_validation.py)  
+- [5_car_plate_validation.py](./5_car_plate_validation.py)  
   *Validates Russian car plates using regex and prints status and region.*
 
 ---
