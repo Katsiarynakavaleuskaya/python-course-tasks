@@ -1,9 +1,8 @@
-# Python Mini-Tasks Portfolio
+# 📚 Python Learning Portfolio
 
-**Author:** Katsiaryna Kavaleuskaya  
-**Goal:** This repository collects small Python scripts and mini-projects created as part of my studies and self-development as a future data scientist.  
-Here, you can find my learning process, code style, and practical problem-solving skills. Embracing AI as a tool for faster, smarter, and more productive solutions.
-
+## 💡 Overview
+This repository contains my Python learning projects and practice scripts, covering topics from basic syntax to algorithmic thinking, input validation, and real-world task automation.  
+Each script is designed to be **self-contained**, easy to run, and follows **clean code** principles and **PEP-8** standards.
 
 ---
 
@@ -19,11 +18,43 @@ Here, you can find my learning process, code style, and practical problem-solvin
   *Calculates average temperature per country in Celsius from a list of daily Fahrenheit values.*
 - [5_car_plate_validation.py](./5_car_plate_validation.py)  
   *Validates Russian car plates using regex and prints status and region.*
+- [6_document_management_system.py](./6_document_management_system.py)  
+  *Console app for managing documents: search, add, delete, and move documents between shelves.*
 
 ---
 
-## 🌱 What I am learning
+## 🚀 How to Run
 
+Clone the repository:
+```bash
+git clone https://github.com/<your_username>/<repo_name>.git
+cd <repo_name>
+```
+
+Run a specific script:
+```bash
+python 1_middle_letter.py
+```
+
+> **Note:** Requires Python 3.10+  
+
+---
+
+## 📂 Folder Structure
+```plaintext
+.
+├── 1_middle_letter.py
+├── 2_sum_until_zero.py
+├── 3_mvp_dating_pairs.py
+├── 4_avg_temp_per_country.py
+├── 5_car_plate_validation.py
+├── 6_document_management_system.py
+└── README.md
+```
+
+---
+
+## 🌱 What I am Learning
 - Clean code, documentation, and best practices
 - User input validation and error handling
 - Writing scripts that are safe and easy to use
@@ -31,20 +62,52 @@ Here, you can find my learning process, code style, and practical problem-solvin
 
 ---
 
+## 🎯 Skills Practiced
+- Data validation & error handling  
+- Functional decomposition  
+- Regular expressions (`re`)  
+- File & data processing  
+- Algorithm design and optimization  
+- CLI interaction  
+- PEP-8 compliance  
+
+---
+
 ## ⭐ Selected Tasks
 
-| Script                                   | Description                              | Key learning points                                             |
-|-------------------------------------------|------------------------------------------|----------------------------------------------------------------|
-| [1_middle_letter.py](./1_middle_letter.py)   | Finds the middle letter(s) of a word      | - String slicing<br>- Input validation<br>- Handling user errors|
-| [2_sum_until_zero.py](./2_sum_until_zero.py) | Sums numbers until zero is entered        | - Input loop<br>- Try/except<br>- User guidance and error proofing|
-| [3_mvp_dating_pairs.py](./3_mvp_dating_pairs.py) | MVP: pairs users by sorted index for dating app | - Greedy algorithm<br>- Sorting<br>- MVP logic<br>- Business constraints|
-| [4_avg_temp_per_country.py](./4_avg_temp_per_country.py) | Calculates average temperature in Celsius per country | - List processing<br>- Data transformation<br>- Using functions|
-| [5_car_plate_validation.py](./5_car_plate_validation.py) | Validates Russian car plates (regex) | - Regular expressions<br>- String processing<br>- Validation logic |
+| Script                                   | Description                              | Key Learning Points                                             |
+|------------------------------------------|------------------------------------------|-----------------------------------------------------------------|
+| [1_middle_letter.py](./1_middle_letter.py) | Finds the middle letter(s) of a word     | String slicing · Input validation · Handling user errors       |
+| [2_sum_until_zero.py](./2_sum_until_zero.py) | Sums numbers until zero is entered       | Input loop · Try/except · User guidance and error proofing     |
+| [3_mvp_dating_pairs.py](./3_mvp_dating_pairs.py) | MVP: pairs users by sorted index for dating app | Greedy algorithm · Sorting · MVP logic · Business constraints |
+| [4_avg_temp_per_country.py](./4_avg_temp_per_country.py) | Calculates average temperature in Celsius per country | List processing · Data transformation · Using functions        |
+| [5_car_plate_validation.py](./5_car_plate_validation.py) | Validates Russian car plates (regex)     | Regular expressions · String processing · Validation logic     |
+| [6_document_management_system.py](./6_document_management_system.py) | Console application to manage documents: search, add, delete, and move between shelves | Modular functions · Data structures (list/dict) · Command handling loop · Input validation · PEP-8 compliance |
+
+
+## 🛠️ Tech Stack
+- **Python 3**
+- Python Standard Library (`re`, `math`, etc.)
+
+---
+
+## 📝 Next Steps
+- Add unit tests for each script  
+- Convert scripts into reusable modules  
+- Extend functionality of **Document Management System** with file storage (JSON/CSV)  
+- Build small GUI (Tkinter or PyQt) for some scripts  
+
+---
+
+## 🗂️ Document Management System – Architecture Diagram
+
+![Document Management System Diagram](./document_management_system_diagram.png)
 
 ---
 
 ## 🔗 Contacts
+- **Email:** katsiaryna1983@icloud.com  
+- **Telegram:** [@Katsiaryna_Kavaleuskaya](https://t.me/Katsiaryna_Kavaleuskaya)  
 
-e-mail:  katsiaryna1983@icloud.com  
-telegram: @Katsiaryna_Kavaleuskaya
+
 
