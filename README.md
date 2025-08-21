@@ -20,8 +20,8 @@ Each script is designed to be **self-contained**, easy to run, and follows **cle
   *Validates Russian car plates using regex and prints status and region.*
 - [6_document_management_system.py](./6_document_management_system.py)  
   *Console app for managing documents: search, add, delete, and move documents between shelves.*
-
----
+- [07_purchase_log_to_funnel.py] (./07_purchase_log_to_funnel.py)
+  *Processes large CSV/JSON logs: maps purchases to visits and builds a sales funnel dataset.*
 
 ## 🚀 How to Run
 
