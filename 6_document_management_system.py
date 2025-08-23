@@ -30,4 +30,295 @@ directories = {
 }
 
 # ========== HELPER FUNCTIONS ==========
-# ... (full code from your functions_homework.py here)
+
+def get_doc_owner_name(doc_number: str) -> Optional[str]:
+    """
+    Return the name of the document owner by document number.
+    
+    Args:
+        doc_number: Document number to search for
+        
+    Returns:
+        Owner name if found, None otherwise
+    """
+    for doc in documents:
+        if doc['number'] == doc_number:
+            return doc['name']
+    return None
+
+
+def get_all_doc_owners_names() -> Generator[str, None, None]:
+    """
+    Return generator of all document owner names.
+    
+    Yields:
+        Owner names from all documents
+    """
+    for doc in documents:
+        yield doc['name']
+
+
+def remove_doc_from_shelf(doc_number: str) -> bool:
+    """
+    Remove document from any shelf it's currently on.
+    
+    Args:
+        doc_number: Document number to remove
+        
+    Returns:
+        True if document was found and removed, False otherwise
+    """
+    for shelf_number, doc_list in directories.items():
+        if doc_number in doc_list:
+            doc_list.remove(doc_number)
+            return True
+    return False
+
+
+def add_doc_to_shelf(doc_number: str, shelf_number: str) -> bool:
+    """
+    Add document to specified shelf.
+    
+    Args:
+        doc_number: Document number to add
+        shelf_number: Target shelf number
+        
+    Returns:
+        True if successful, False if shelf doesn't exist
+    """
+    if shelf_number not in directories:
+        return False
+    
+    # Remove from current shelf first (if exists)
+    remove_doc_from_shelf(doc_number)
+    
+    # Add to new shelf
+    directories[shelf_number].append(doc_number)
+    return True
+
+
+def show_document_info(doc_number: str) -> None:
+    """
+    Display information about a specific document.
+    
+    Args:
+        doc_number: Document number to display info for
+    """
+    # Find the document
+    doc_info = None
+    for doc in documents:
+        if doc['number'] == doc_number:
+            doc_info = doc
+            break
+    
+    if not doc_info:
+        print(f"Document {doc_number} not found")
+        return
+    
+    # Find which shelf it's on
+    shelf_location = None
+    for shelf_number, doc_list in directories.items():
+        if doc_number in doc_list:
+            shelf_location = shelf_number
+            break
+    
+    print(f"Document {doc_number}:")
+    print(f"  Type: {doc_info['type']}")
+    print(f"  Owner: {doc_info['name']}")
+    print(f"  Shelf: {shelf_location if shelf_location else 'Not placed on any shelf'}")
+
+
+def show_all_docs_info() -> None:
+    """Display information about all documents."""
+    print("All documents:")
+    for doc in documents:
+        show_document_info(doc['number'])
+        print()
+
+
+# ========== COMMAND HANDLERS ==========
+
+def cmd_people() -> None:
+    """Command 'p' - Show all document owners."""
+    print("Document owners:")
+    owners = set(get_all_doc_owners_names())
+    for owner in sorted(owners):
+        print(f"  {owner}")
+
+
+def cmd_info() -> None:
+    """Command 'l' - Show info for specific document."""
+    doc_number = input("Enter document number: ").strip()
+    if not doc_number:
+        print("Document number cannot be empty")
+        return
+    show_document_info(doc_number)
+
+
+def cmd_add() -> None:
+    """Command 'a' - Add new document."""
+    print("Adding new document...")
+    
+    # Get document details
+    doc_type = input("Enter document type: ").strip()
+    if not doc_type:
+        print("Document type cannot be empty")
+        return
+    
+    doc_number = input("Enter document number: ").strip()
+    if not doc_number:
+        print("Document number cannot be empty")
+        return
+    
+    # Check if document number already exists
+    for doc in documents:
+        if doc['number'] == doc_number:
+            print(f"Document with number {doc_number} already exists!")
+            return
+    
+    owner_name = input("Enter owner name: ").strip()
+    if not owner_name:
+        print("Owner name cannot be empty")
+        return
+    
+    # Add document to documents list
+    new_doc = {
+        'type': doc_type,
+        'number': doc_number,
+        'name': owner_name
+    }
+    documents.append(new_doc)
+    
+    # Ask for shelf placement
+    shelf_number = input("Enter shelf number (1, 2, or 3) or press Enter to skip: ").strip()
+    if shelf_number:
+        if shelf_number in directories:
+            add_doc_to_shelf(doc_number, shelf_number)
+            print(f"Document {doc_number} added successfully and placed on shelf {shelf_number}")
+        else:
+            print(f"Invalid shelf number {shelf_number}. Document added but not placed on any shelf.")
+    else:
+        print(f"Document {doc_number} added successfully (not placed on any shelf)")
+
+
+def cmd_delete() -> None:
+    """Command 'd' - Delete document."""
+    doc_number = input("Enter document number to delete: ").strip()
+    if not doc_number:
+        print("Document number cannot be empty")
+        return
+    
+    # Find and remove document from documents list
+    doc_found = False
+    for i, doc in enumerate(documents):
+        if doc['number'] == doc_number:
+            documents.pop(i)
+            doc_found = True
+            break
+    
+    if not doc_found:
+        print(f"Document {doc_number} not found")
+        return
+    
+    # Remove from shelf if present
+    remove_doc_from_shelf(doc_number)
+    print(f"Document {doc_number} deleted successfully")
+
+
+def cmd_move() -> None:
+    """Command 'm' - Move document to different shelf."""
+    doc_number = input("Enter document number to move: ").strip()
+    if not doc_number:
+        print("Document number cannot be empty")
+        return
+    
+    # Check if document exists
+    doc_exists = any(doc['number'] == doc_number for doc in documents)
+    if not doc_exists:
+        print(f"Document {doc_number} not found")
+        return
+    
+    shelf_number = input("Enter target shelf number (1, 2, or 3): ").strip()
+    if shelf_number not in directories:
+        print(f"Invalid shelf number {shelf_number}")
+        return
+    
+    success = add_doc_to_shelf(doc_number, shelf_number)
+    if success:
+        print(f"Document {doc_number} moved to shelf {shelf_number}")
+    else:
+        print("Failed to move document")
+
+
+def cmd_shelf() -> None:
+    """Command 's' - Show documents on specific shelf."""
+    shelf_number = input("Enter shelf number (1, 2, or 3): ").strip()
+    if shelf_number not in directories:
+        print(f"Invalid shelf number {shelf_number}")
+        return
+    
+    doc_numbers = directories[shelf_number]
+    if not doc_numbers:
+        print(f"Shelf {shelf_number} is empty")
+        return
+    
+    print(f"Documents on shelf {shelf_number}:")
+    for doc_number in doc_numbers:
+        owner_name = get_doc_owner_name(doc_number)
+        print(f"  {doc_number} - {owner_name}")
+
+
+def cmd_help() -> None:
+    """Command 'h' - Show help."""
+    print("Available commands:")
+    print("  p - Show all document owners")
+    print("  l - Show info for specific document")
+    print("  a - Add new document")
+    print("  d - Delete document")
+    print("  m - Move document to different shelf")
+    print("  s - Show documents on specific shelf")
+    print("  h - Show this help")
+    print("  q - Quit")
+
+
+# ========== MAIN PROGRAM ==========
+
+def main() -> None:
+    """Main program loop."""
+    print("=== Document Management System ===")
+    print("Type 'h' for help or 'q' to quit")
+    print()
+    
+    commands: Dict[str, Callable[[], None]] = {
+        'p': cmd_people,
+        'l': cmd_info,
+        'a': cmd_add,
+        'd': cmd_delete,
+        'm': cmd_move,
+        's': cmd_shelf,
+        'h': cmd_help
+    }
+    
+    while True:
+        try:
+            command = input("\nEnter command: ").strip().lower()
+            
+            if command == 'q':
+                print("Goodbye!")
+                break
+            elif command in commands:
+                commands[command]()
+            elif command == '':
+                continue
+            else:
+                print(f"Unknown command '{command}'. Type 'h' for help.")
+                
+        except KeyboardInterrupt:
+            print("\nGoodbye!")
+            break
+        except Exception as e:
+            print(f"Error: {e}")
+
+
+if __name__ == "__main__":
+    main()
